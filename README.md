@@ -21,7 +21,7 @@ Trading Dashboard
 
 
 Backend API
-
+https://nivesh-stock-trading-platform-fsx2.onrender.com
 
 ---
 
