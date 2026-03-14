@@ -1,0 +1,7 @@
+<svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="18" cy="20" r="8" fill="#1a73e8"></circle>
+  <path d="M14 20 L18 14 L22 20" stroke="#fff" stroke-width="2" fill="none"></path>
+  <text x="40" y="26" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600" fill="#1a73e8">
+    NIVESH
+  </text>
+</svg>
