@@ -12,6 +12,17 @@ It provides a **landing website, authentication system, and a protected trading 
 
 The project demonstrates **modern full-stack development practices**, including authentication, API communication, database management, and responsive UI design.
 
+## 🌐 Live Project
+
+Landing Website
+
+
+Trading Dashboard
+
+
+Backend API
+
+
 ---
 
 # 📌 Features
