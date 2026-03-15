@@ -15,7 +15,7 @@ The project demonstrates **modern full-stack development practices**, including 
 ## 🌐 Live Project
 
 Landing Website
-
+https://nivesh-frontend-aspv.vercel.app/
 
 Trading Dashboard
 
