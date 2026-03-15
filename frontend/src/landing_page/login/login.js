@@ -15,11 +15,11 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3002/login", form);
+      const res = await axios.post("https://nivesh-stock-trading-platform-fsx2.onrender.com/login", form);
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
-      window.location.href = "http://localhost:3001?token=" + res.data.token;
+      window.location.href = "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app?token=" + res.data.token;
     } catch (err) {
       alert(err.response?.data?.msg || "Login failed");
     }
