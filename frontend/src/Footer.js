@@ -6,7 +6,7 @@ function Footer() {
         <div className='container border-top mt-5' >
             <div className='row mt-5'>
                 <div className='col'>
-                <img src="media/nivesh.svg"style={{width: "50%"}}/>
+                <img src="media/nivesh.svg"style={{width: "50%"}} alt="nivesh"/>
                 <p> 
                    &copy; 2026, NIVESH. All rights reserved.
                 </p>
