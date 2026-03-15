@@ -18,7 +18,7 @@ Landing Website
 https://nivesh-frontend-aspv.vercel.app/
 
 Trading Dashboard
-
+https://nivesh-trading-dashboard-o5cr.vercel.app
 
 Backend API
 https://nivesh-stock-trading-platform-fsx2.onrender.com
