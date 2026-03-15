@@ -17,7 +17,9 @@ const token = localStorage.getItem("token");
 if (!token) {
   window.location.href = "https://nivesh-frontend-aspv.vercel.app/login";
 }
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
