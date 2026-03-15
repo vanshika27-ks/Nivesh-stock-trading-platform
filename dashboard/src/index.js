@@ -15,7 +15,7 @@ if (tokenFromURL) {
 const token = localStorage.getItem("token");
 
 if (!token) {
-  window.location.href = "http://localhost:3000/login";
+  window.location.href = "https://nivesh-trading-dashboard-o5cr.vercel.app/login";
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

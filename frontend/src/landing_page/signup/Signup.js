@@ -25,9 +25,9 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3002/signup", form);
+      await axios.post("https://nivesh-stock-trading-platform-fsx2.onrender.com/signup", form);
 
-      const res = await axios.post("http://localhost:3002/login", {
+      const res = await axios.post("https://nivesh-stock-trading-platform-fsx2.onrender.com/login", {
         email: form.email,
         password: form.password,
       });
@@ -35,7 +35,7 @@ export default function Signup() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
 
-      window.location.href = "http://localhost:3001"; // dashboard
+      window.location.href = "https://nivesh-trading-dashboard-o5cr.vercel.app"; // dashboard
     } catch (err) {
       alert(err.response?.data?.msg || "Signup/Login failed");
     }
