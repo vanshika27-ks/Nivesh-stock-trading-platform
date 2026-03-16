@@ -18,9 +18,16 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors({
-  origin: "http://localhost:3000",
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://nivesh-frontend-aspv.vercel.app",
+      "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(bodyParser.json());
 
 /* ================= AUTH ROUTES ================= */
