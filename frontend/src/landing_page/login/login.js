@@ -15,11 +15,18 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://nivesh-stock-trading-platform-fsx2.onrender.com/login", form);
+      const res = await axios.post(
+        "https://nivesh-stock-trading-platform-fsx2.onrender.com/login",
+        form
+      );
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
-      window.location.href = "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app" + res.data.token;
+
+      window.location.href =
+        "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app?token=" +
+        res.data.token;
+
     } catch (err) {
       alert(err.response?.data?.msg || "Login failed");
     }
@@ -31,7 +38,6 @@ export default function Login() {
         <h2>Login to Nivesh</h2>
 
         <form onSubmit={handleSubmit}>
-
           <div className="floating-group">
             <input
               type="email"
@@ -59,16 +65,20 @@ export default function Login() {
           <button type="submit" className="glass-btn">
             Login
           </button>
-          <p style={{ textAlign: "center", marginTop: "15px", color: "white" }}>
-  Don't have an account?{" "}
-  <a
-    href="/signup"
-    style={{ color: "#ffffff", fontWeight: "600", textDecoration: "underline" }}
-  >
-    Signup
-  </a>
-</p>
 
+          <p style={{ textAlign: "center", marginTop: "15px", color: "white" }}>
+            Don't have an account?{" "}
+            <a
+              href="/signup"
+              style={{
+                color: "#ffffff",
+                fontWeight: "600",
+                textDecoration: "underline"
+              }}
+            >
+              Signup
+            </a>
+          </p>
         </form>
       </div>
     </div>
