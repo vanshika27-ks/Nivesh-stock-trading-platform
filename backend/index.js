@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const bcrypt = require("bcryptjs");
@@ -18,17 +17,20 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
+/* ================= MIDDLEWARE ================= */
+
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
       "https://nivesh-frontend-aspv.vercel.app",
-      "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app"
+      "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app",
     ],
-    credentials: true
+    credentials: true,
   })
 );
-app.use(bodyParser.json());
+
+app.use(express.json());
 
 /* ================= AUTH ROUTES ================= */
 
@@ -38,6 +40,7 @@ app.post("/signup", async (req, res) => {
     const { name, email, password, age } = req.body;
 
     const existingUser = await UserModel.findOne({ email });
+
     if (existingUser) {
       return res.status(400).json({ msg: "User already exists" });
     }
@@ -54,7 +57,9 @@ app.post("/signup", async (req, res) => {
     await newUser.save();
 
     res.json({ msg: "Signup successful" });
+
   } catch (err) {
+    console.log(err);
     res.status(500).json({ msg: "Signup error" });
   }
 });
@@ -62,14 +67,17 @@ app.post("/signup", async (req, res) => {
 // LOGIN
 app.post("/login", async (req, res) => {
   try {
+
     const { email, password } = req.body;
 
     const user = await UserModel.findOne({ email });
+
     if (!user) {
       return res.status(400).json({ msg: "Invalid credentials" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+
     if (!isMatch) {
       return res.status(400).json({ msg: "Invalid credentials" });
     }
@@ -86,6 +94,7 @@ app.post("/login", async (req, res) => {
     });
 
   } catch (err) {
+    console.log(err);
     res.status(500).json({ msg: "Login error" });
   }
 });
@@ -116,8 +125,16 @@ app.post("/newOrder", async (req, res) => {
 
 /* ================= START SERVER ================= */
 
-app.listen(PORT, () => {
-  console.log("App started!");
-  mongoose.connect(uri);
-  console.log("DB started!");
-});
+mongoose
+  .connect(uri)
+  .then(() => {
+    console.log("MongoDB connected");
+
+    app.listen(PORT, () => {
+      console.log("Server running on port", PORT);
+    });
+
+  })
+  .catch((err) => {
+    console.log(err);
+  });

@@ -34,10 +34,11 @@ export default function Signup() {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.name);
-
+      
       window.location.href =
-"https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app";// dashboard
-    } catch (err) {
+        "https://nivesh-trading-dashboard-o5cr-vanshika27-ks-projects.vercel.app?token=" +
+        res.data.token;
+}catch (err) {
       alert(err.response?.data?.msg || "Signup/Login failed");
     }
   };
